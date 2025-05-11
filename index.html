@@ -9,43 +9,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Colores inspirados en el flyer SIBARITA */
-      --sibarita-bg: #ffffff; /* Fondo principal blanco */
-      --sibarita-text-dark: #333333; /* Texto oscuro principal (casi negro) */
-      --sibarita-text-light: #555555; /* Texto secundario un poco más claro */
-      --sibarita-accent-gold: #B08D57; /* Un dorado/ocre sutil como acento, si se usa */
-      --sibarita-border: #eeeeee; /* Borde muy sutil */
-      --sibarita-overlay: rgba(0, 0, 0, 0.3); /* Overlay oscuro para el hero */
+      --sibarita-bg: #2f3124;
+      --sibarita-text-dark: #ffffff;
+      --sibarita-text-light: #E0E0E0;
+      --sibarita-accent-gold: #FFD700;
+      --sibarita-border: #3a3c2f;
+      --sibarita-overlay: rgba(0, 0, 0, 0.4);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    
     body {
       font-family: "Montserrat", sans-serif;
-      background: var(--sibarita-bg);
+      background-image: url('images/sibarita-bedroom.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
       color: var(--sibarita-text-dark);
-      font-size: 16px; /* Un poco más pequeño para un look refinado */
+      font-size: 16px;
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased; /* Mejora la visualización de fuentes */
+      -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      position: relative;
     }
 
-    /* Estilos del Header Hero */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(47, 49, 36, 0.85); /* Semi-transparent overlay using the green color */
+      z-index: -1;
+    }
+
     .hero-header {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-height: 80vh; /* Altura considerable */
+      min-height: 80vh;
       padding: 3rem 1.5rem;
-      background-image: linear-gradient(var(--sibarita-overlay), var(--sibarita-overlay)), url('images/sibarita-hero-bg.jpg'); /* USER: Asegúrate que esta imagen exista */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #ffffff; /* Texto blanco sobre la imagen */
+      background: none; /* Remove the previous background */
     }
 
     .hero-header .brand-name {
@@ -108,15 +114,16 @@
     }
 
     .property-card {
-      display: block; /* Para que el <a> ocupe todo el espacio */
-      background: #ffffff;
+      display: block;
+      background: rgba(37, 38, 25, 0.9); /* Semi-transparent dark green */
+      backdrop-filter: blur(5px);
       border: 1px solid var(--sibarita-border);
-      border-radius: 4px; /* Bordes redondeados sutiles */
-      text-decoration: none; /* Quitar subrayado del enlace */
+      border-radius: 4px;
+      text-decoration: none;
       color: var(--sibarita-text-dark);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden; /* Para que la imagen no se salga */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .property-card:hover {
@@ -125,16 +132,16 @@
     }
     
     .property-card .property-image-placeholder {
-        height: 200px;
-        background-color: #e0e0e0; /* Color de placeholder para la imagen */
+        height: 250px;
+        background-color: #e0e0e0;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #aaa;
         font-style: italic;
-        /* USER: Idealmente, aquí iría un <img>. Ej: <img src="images/propiedad1.jpg" alt="Nombre Propiedad"> */
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
 
     .property-card .property-content {
@@ -171,7 +178,8 @@
 
 
     footer {
-      background: #f8f8f8; /* Un gris muy claro para el footer */
+      background: rgba(37, 38, 25, 0.9); /* Semi-transparent dark green */
+      backdrop-filter: blur(5px);
       color: var(--sibarita-text-light);
       padding: 3rem 1rem;
       text-align: center;
@@ -219,8 +227,8 @@
     </p>
 
     <div class="properties-grid">
-      <a href="https://www.airbnb.com/h/tu-anuncio-1" target="_blank" rel="noopener noreferrer" class="property-card">
-        <div class="property-image-placeholder" style="background-image: url('images/placeholder-propiedad1.jpg');">
+      <a href="https://www.airbnb.com/rooms/1413012591199690442?guests=1&adults=1&s=67&unique_share_id=59c4959f-9303-4caa-9976-f99681360abd" target="_blank" rel="noopener noreferrer" class="property-card">
+        <div class="property-image-placeholder" style="background-image: url('image/casa1.avif');">
           </div>
         <div class="property-content">
           <h3>Casa del Bosque</h3>
