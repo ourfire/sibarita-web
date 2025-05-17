@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow">
   <title>SIBARITA - A Collection of Homes</title>
   <link rel="icon" type="image/png" href="images/logocama.png">
 
@@ -59,7 +65,7 @@
     }
 
     .fixed-logo-link img {
-      height: 50px; /* Ajusta el tamaño del logo fijo */
+      height: 70px; /* Ajusta el tamaño del logo fijo */
       width: auto; /* Mantiene la proporción */
       display: block;
     }
@@ -104,6 +110,29 @@
       margin: 1rem auto;
     }
 
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: #155d30;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .cta-button i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+
     .container {
       padding: 2rem 1rem;
       max-width: 1200px;
@@ -137,8 +166,9 @@
     }
 
     .property-card {
-      display: block;
-      background: rgba(37, 38, 25, 0.9); /* Fondo original de las tarjetas */
+      display: flex;
+      flex-direction: column;
+      background: rgba(33, 33, 33, 0.9);
       backdrop-filter: blur(5px);
       border: 1px solid var(--sibarita-border);
       border-radius: 4px;
@@ -147,6 +177,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      height: 100%;
     }
 
     .property-card:hover {
@@ -156,7 +187,7 @@
     
     .property-card .property-image-placeholder {
         height: 250px;
-        background-color: #e0e0e0; /* Placeholder original */
+        background-color: #e0e0e0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -170,6 +201,9 @@
     .property-card .property-content {
       padding: 1.5rem;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .property-card h3 {
@@ -184,30 +218,62 @@
       font-size: 0.9rem;
       color: var(--sibarita-text-light);
       margin-bottom: 1rem;
-      min-height: 50px; 
+      flex-grow: 1;
+    }
+
+    .property-card .cta-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding: 0 0.5rem;
     }
 
     .property-card .cta-link {
-        display: inline-block;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-        font-size: 0.9rem;
-        color: var(--sibarita-accent-gold); 
-        text-decoration: none;
-    }
-    .property-card .cta-link:hover {
-        text-decoration: underline;
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #FF5A5F;
+      text-decoration: none;
+      transition: transform 0.3s ease;
     }
 
+    .property-card .cta-link:hover {
+      text-decoration: underline;
+      transform: translateY(-2px);
+    }
+
+    .property-card .whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      background-color: #155d30;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .property-card .whatsapp-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .property-card .whatsapp-cta i {
+      margin-right: 6px;
+    }
 
     footer {
-      background: rgba(37, 38, 25, 0.9); /* Fondo original del footer */
+      background: rgba(33, 33, 33, 0.9);
       backdrop-filter: blur(5px);
       color: var(--sibarita-text-light);
-      padding: 3rem 1rem;
+      padding: 1rem 1rem;
       text-align: center;
       font-family: 'Montserrat', sans-serif;
-      margin-top: 3rem;
+      margin-top: 2rem;
       font-size: 0.9rem;
       border-top: 1px solid var(--sibarita-border);
     }
@@ -257,6 +323,10 @@
     <div class="brand-name">SIBARITA</div>
     <div class="tagline">"A collection of homes"</div>
     <h1 class="main-title">Transformamos cada propiedad en una fuente de ingresos recurrentes y, a la vez, en una experiencia y espacio unicos.</h1>
+    <a href="https://wa.me/5219851057045" target="_blank" rel="noopener noreferrer" class="cta-button">
+      <i class="fab fa-whatsapp"></i>
+      Contáctanos por WhatsApp
+    </a>
   </header>
 
   <div class="container">
@@ -267,37 +337,54 @@
     </p>
 
     <div class="properties-grid">
-      <a href="https://www.airbnb.com/rooms/1413012591199690442?guests=1&adults=1&s=67&unique_share_id=59c4959f-9303-4caa-9976-f99681360abd" target="_blank" rel="noopener noreferrer" class="property-card">
+      <div class="property-card">
         <div class="property-image-placeholder" style="background-image: url('image/casa1.avif');">
-          </div>
+        </div>
         <div class="property-content">
           <h3>Casa Art Residence - Valle de Bravo</h3>
           <p>Un refugio elegante y sereno, perfecto para conectar con la naturaleza y el lujo discreto.</p>
-          <span class="cta-link">Ver en Airbnb &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://www.airbnb.com/rooms/1189314366580423657?guests=1&adults=1&s=67&unique_share_id=c216a649-777c-45dc-bcd7-38e304aba787" target="_blank" rel="noopener noreferrer" class="property-card">
-        <div class="property-image-placeholder" style="background-image: url('image/casa2.avif');">
+          <div class="cta-container">
+            <a href="https://www.airbnb.com/rooms/1413012591199690442?guests=1&adults=1&s=67&unique_share_id=59c4959f-9303-4caa-9976-f99681360abd" target="_blank" rel="noopener noreferrer" class="cta-link">Ver en Airbnb &rarr;</a>
+            <a href="https://wa.me/5219851057045" target="_blank" rel="noopener noreferrer" class="whatsapp-cta">
+              <i class="fab fa-whatsapp"></i>
+              Reservar
+            </a>
           </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="property-image-placeholder" style="background-image: url('image/casa2.avif');">
+        </div>
         <div class="property-content">
           <h3>Loft ALENA - Mérida</h3>
           <p>Ubicacion ideal y diseño contemporáneo se unen en esta joya arquitectónica de la colonia mexico.</p>
-          <span class="cta-link">Ver en Airbnb &rarr;</span>
+          <div class="cta-container">
+            <a href="https://www.airbnb.com/rooms/1189314366580423657?guests=1&adults=1&s=67&unique_share_id=c216a649-777c-45dc-bcd7-38e304aba787" target="_blank" rel="noopener noreferrer" class="cta-link">Ver en Airbnb &rarr;</a>
+            <a href="https://wa.me/5219851057045" target="_blank" rel="noopener noreferrer" class="whatsapp-cta">
+              <i class="fab fa-whatsapp"></i>
+              Reservar
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <a href="https://www.airbnb.com/rooms/719571231781626059?guests=1&adults=1&s=67&unique_share_id=3c2ba687-13a4-45b2-a84c-e165c1c19ffe" target="_blank" rel="noopener noreferrer" class="property-card">
+      <div class="property-card">
         <div class="property-image-placeholder" style="background-image: url('image/casa3.png');">
-           </div>
+        </div>
         <div class="property-content">
           <h3>Mini Loft NFT - Mérida</h3>
           <p>El bunker ideal para un nomada digital</p>
-          <span class="cta-link">Ver en Airbnb &rarr;</span>
+          <div class="cta-container">
+            <a href="https://www.airbnb.com/rooms/719571231781626059?guests=1&adults=1&s=67&unique_share_id=3c2ba687-13a4-45b2-a84c-e165c1c19ffe" target="_blank" rel="noopener noreferrer" class="cta-link">Ver en Airbnb &rarr;</a>
+            <a href="https://wa.me/5219851057045" target="_blank" rel="noopener noreferrer" class="whatsapp-cta">
+              <i class="fab fa-whatsapp"></i>
+              Reservar
+            </a>
+          </div>
         </div>
-      </a>
-      
       </div>
+    </div>
   </div>
   <footer>
     <div class="contact-info" style="margin-bottom: 1rem;">
