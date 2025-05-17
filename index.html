@@ -4,22 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIBARITA - A Collection of Homes</title>
+  <link rel="icon" type="image/png" href="images/logocama.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  <style>
     :root {
-      --sibarita-bg: #2f3124;
+      --sibarita-bg: #2f3124; 
       --sibarita-text-dark: #ffffff;
       --sibarita-text-light: #E0E0E0;
       --sibarita-accent-gold: #FFD700;
-      --sibarita-border: #3a3c2f;
-      --sibarita-overlay: rgba(0, 0, 0, 0.4);
+      --sibarita-border: #3a3c2f; 
+      /* --sibarita-overlay: rgba(0, 0, 0, 0.4); Ya no es necesario si el ::before lo define */
     }
     
     body {
       font-family: "Montserrat", sans-serif;
+      /* Restaurando fondo original */
       background-image: url('images/sibarita-bedroom.jpg');
       background-size: cover;
       background-position: center;
@@ -30,9 +33,11 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      position: relative;
+      position: relative; 
+      padding-top: 80px; /* Añadido para que el contenido no quede debajo del logo fijo si el logo fuera más alto */
     }
 
+    /* Restaurando el overlay original */
     body::before {
       content: '';
       position: fixed;
@@ -40,9 +45,25 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(47, 49, 36, 0.85); /* Semi-transparent overlay using the green color */
+      background-color: rgba(47, 49, 36, 0.85); /* Overlay verdoso original */
       z-index: -1;
     }
+
+    /* Estilos para el logo fijo */
+    .fixed-logo-link {
+      position: fixed;
+      top: 20px; /* Ajusta el espaciado desde arriba */
+      left: 20px; /* Ajusta el espaciado desde la izquierda */
+      z-index: 1000; /* Para asegurar que esté por encima de otro contenido */
+      display: block; /* Para que el enlace ocupe el tamaño de la imagen */
+    }
+
+    .fixed-logo-link img {
+      height: 50px; /* Ajusta el tamaño del logo fijo */
+      width: auto; /* Mantiene la proporción */
+      display: block;
+    }
+
 
     .hero-header {
       display: flex;
@@ -50,19 +71,21 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-height: 80vh;
+      min-height: 80vh; /* Puede que quieras ajustar esto ahora que el logo está fuera */
       padding: 3rem 1.5rem;
-      background: none; /* Remove the previous background */
+      background: none; 
     }
 
+    /* El brand-name vuelve a su estado original, ya no necesita el contenedor con el logo aquí */
     .hero-header .brand-name {
-      font-family: 'Montserrat', sans-serif; /* Fuente limpia para la marca */
-      font-size: 3.5rem; /* Ajustado para el logo de SIBARITA */
-      font-weight: 300; /* Ligero */
-      letter-spacing: 0.2em; /* Espaciado amplio */
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 3.5rem; 
+      font-weight: 300; 
+      letter-spacing: 0.2em; 
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.5rem; /* Margen original restaurado */
     }
+
     .hero-header .tagline {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.9rem;
@@ -106,17 +129,16 @@
       margin-right: auto;
     }
 
-    /* Estilos para las propiedades (antes .services) */
     .properties-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
       gap: 2rem;
       margin: 2rem 0;
     }
 
     .property-card {
       display: block;
-      background: rgba(37, 38, 25, 0.9); /* Semi-transparent dark green */
+      background: rgba(37, 38, 25, 0.9); /* Fondo original de las tarjetas */
       backdrop-filter: blur(5px);
       border: 1px solid var(--sibarita-border);
       border-radius: 4px;
@@ -134,7 +156,7 @@
     
     .property-card .property-image-placeholder {
         height: 250px;
-        background-color: #e0e0e0;
+        background-color: #e0e0e0; /* Placeholder original */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -162,7 +184,7 @@
       font-size: 0.9rem;
       color: var(--sibarita-text-light);
       margin-bottom: 1rem;
-      min-height: 50px; /* Para alinear un poco si las descripciones varían */
+      min-height: 50px; 
     }
 
     .property-card .cta-link {
@@ -170,7 +192,7 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         font-size: 0.9rem;
-        color: var(--sibarita-accent-gold); /* Usando el color de acento */
+        color: var(--sibarita-accent-gold); 
         text-decoration: none;
     }
     .property-card .cta-link:hover {
@@ -179,7 +201,7 @@
 
 
     footer {
-      background: rgba(37, 38, 25, 0.9); /* Semi-transparent dark green */
+      background: rgba(37, 38, 25, 0.9); /* Fondo original del footer */
       backdrop-filter: blur(5px);
       color: var(--sibarita-text-light);
       padding: 3rem 1rem;
@@ -201,6 +223,10 @@
 
 
     @media (max-width: 768px) {
+      /* Ya no es necesario ajustar .brand-logo aquí ya que es fijo y tiene su propio tamaño */
+      .hero-header .brand-name {
+        font-size: 2.8rem; 
+      }
       .hero-header .main-title {
         font-size: 2rem;
       }
@@ -210,10 +236,23 @@
       .hero-header {
           min-height: 70vh;
       }
+      .fixed-logo-link img { /* Hacer el logo fijo un poco más pequeño en móviles */
+          height: 40px;
+      }
+      .fixed-logo-link { /* Reducir espaciado del logo fijo en móviles */
+          top: 15px;
+          left: 15px;
+      }
+      body {
+          padding-top: 70px; /* Ajustar padding si el logo fijo es más pequeño */
+      }
     }
   </style>
 </head>
 <body>
+  <a href="index.html" class="fixed-logo-link"> <img src="images/logocama.png" alt="Sibarita Home Logo">
+  </a>
+
   <header class="hero-header">
     <div class="brand-name">SIBARITA</div>
     <div class="tagline">"A collection of homes"</div>
