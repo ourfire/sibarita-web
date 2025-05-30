@@ -200,6 +200,75 @@
         background-repeat: no-repeat;
     }
 
+    /* Carousel styles */
+    .carousel-container {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .carousel-slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        z-index: 2;
+        transition: background 0.3s ease;
+    }
+
+    .carousel-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-prev {
+        left: 10px;
+    }
+
+    .carousel-next {
+        right: 10px;
+    }
+
+    .carousel-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 2;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .carousel-dot.active {
+        background: white;
+    }
+
     .property-card .property-content {
       padding: 1.5rem;
       text-align: left;
@@ -379,7 +448,23 @@
 
     <div class="properties-grid">
       <div class="property-card">
-        <div class="property-image-placeholder" style="background-image: url('image/casa1.avif');">
+        <div class="carousel-container">
+          <div class="carousel-slides">
+            <div class="carousel-slide" style="background-image: url('image/casa1.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa1.2.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa1.3.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa1.4.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa1.5.avif');"></div>
+          </div>
+          <button class="carousel-button carousel-prev" onclick="prevSlide(this)">❮</button>
+          <button class="carousel-button carousel-next" onclick="nextSlide(this)">❯</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 3)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 4)"></span>
+          </div>
         </div>
         <div class="property-content">
           <h3>Casa Art Residence - Valle de Bravo</h3>
@@ -395,7 +480,23 @@
       </div>
 
       <div class="property-card">
-        <div class="property-image-placeholder" style="background-image: url('image/casa2.avif');">
+        <div class="carousel-container">
+          <div class="carousel-slides">
+            <div class="carousel-slide" style="background-image: url('image/casa2.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa2.2.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa2.3.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa2.4.avif');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa2.5.avif');"></div>
+          </div>
+          <button class="carousel-button carousel-prev" onclick="prevSlide(this)">❮</button>
+          <button class="carousel-button carousel-next" onclick="nextSlide(this)">❯</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 3)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 4)"></span>
+          </div>
         </div>
         <div class="property-content">
           <h3>Loft ALENA - Mérida</h3>
@@ -411,7 +512,23 @@
       </div>
 
       <div class="property-card">
-        <div class="property-image-placeholder" style="background-image: url('image/casa3.png');">
+        <div class="carousel-container">
+          <div class="carousel-slides">
+            <div class="carousel-slide" style="background-image: url('image/casa3.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa3.2.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa3.3.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa3.4.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa3.5.png');"></div>
+          </div>
+          <button class="carousel-button carousel-prev" onclick="prevSlide(this)">❮</button>
+          <button class="carousel-button carousel-next" onclick="nextSlide(this)">❯</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 3)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 4)"></span>
+          </div>
         </div>
         <div class="property-content">
           <h3>Mini Loft - Mérida</h3>
@@ -426,13 +543,61 @@
         </div>
       </div>
       <div class="property-card">
-        <div class="property-image-placeholder" style="background-image: url('image/casa4.png');">
+        <div class="carousel-container">
+          <div class="carousel-slides">
+            <div class="carousel-slide" style="background-image: url('image/casa4.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa4.2.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa4.3.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa4.4.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa4.5.png');"></div>
+          </div>
+          <button class="carousel-button carousel-prev" onclick="prevSlide(this)">❮</button>
+          <button class="carousel-button carousel-next" onclick="nextSlide(this)">❯</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 3)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 4)"></span>
+          </div>
         </div>
         <div class="property-content">
           <h3>Casa de Mami - Valladolid</h3>
           <p>"ubicacion, alberca y espacio"</p>
           <div class="cta-container">
             <a href="https://www.airbnb.com/rooms/865363212342895912?guests=1&adults=1&s=67&unique_share_id=a5933fc9-96b3-4031-80b0-b5c241c37b23" target="_blank" rel="noopener noreferrer" class="cta-link">Ver en Airbnb &rarr;</a>
+            <a href="https://wa.me/5219851057045" target="_blank" rel="noopener noreferrer" class="whatsapp-cta">
+              <i class="fab fa-whatsapp"></i>
+              Reservar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="carousel-container">
+          <div class="carousel-slides">
+            <div class="carousel-slide" style="background-image: url('image/casa5.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa5.2.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa5.3.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa5.4.png');"></div>
+            <div class="carousel-slide" style="background-image: url('image/casa5.5.png');"></div>
+          </div>
+          <button class="carousel-button carousel-prev" onclick="prevSlide(this)">❮</button>
+          <button class="carousel-button carousel-next" onclick="nextSlide(this)">❯</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 3)"></span>
+            <span class="carousel-dot" onclick="goToSlide(this, 4)"></span>
+          </div>
+        </div>
+        <div class="property-content">
+          <h3>CASA VEGA de la cascada - Avandaro</h3>
+          <p>Una experiencia única en el corazón de AVANDARO, JAcuzzy al aire libre.</p>
+          <div class="cta-container">
+            <a href="https://www.airbnb.mx/rooms/1427591560024967040?guests=1&adults=1&s=67&unique_share_id=b39858d3-411a-4a1f-9a8b-0d3fa5760ea3" target="_blank" rel="noopener noreferrer" class="cta-link">Ver en Airbnb &rarr;</a>
             <a href="https://wa.me/5219851057045" target="_blank" rel="noopener noreferrer" class="whatsapp-cta">
               <i class="fab fa-whatsapp"></i>
               Reservar
@@ -456,6 +621,42 @@
       Contáctanos para más información sobre nuestras propiedades y servicios de gestión.
     </p>
     <p style="margin-top: 0.5rem;">SIBARITA &copy; 2025 - Valle de Bravo</p>
-  </footer></body>
+  </footer>
+  <script>
+    function nextSlide(button) {
+      const container = button.parentElement;
+      const slides = container.querySelector('.carousel-slides');
+      const dots = container.querySelectorAll('.carousel-dot');
+      const currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('active'));
+      const nextIndex = (currentIndex + 1) % dots.length;
+      
+      slides.style.transform = `translateX(-${nextIndex * 100}%)`;
+      dots[currentIndex].classList.remove('active');
+      dots[nextIndex].classList.add('active');
+    }
+
+    function prevSlide(button) {
+      const container = button.parentElement;
+      const slides = container.querySelector('.carousel-slides');
+      const dots = container.querySelectorAll('.carousel-dot');
+      const currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('active'));
+      const prevIndex = (currentIndex - 1 + dots.length) % dots.length;
+      
+      slides.style.transform = `translateX(-${prevIndex * 100}%)`;
+      dots[currentIndex].classList.remove('active');
+      dots[prevIndex].classList.add('active');
+    }
+
+    function goToSlide(dot, index) {
+      const container = dot.parentElement.parentElement;
+      const slides = container.querySelector('.carousel-slides');
+      const dots = container.querySelectorAll('.carousel-dot');
+      
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    }
+  </script>
+</body>
 </html>
 
